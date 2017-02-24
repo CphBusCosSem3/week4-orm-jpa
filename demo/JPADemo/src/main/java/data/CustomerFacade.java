@@ -24,17 +24,18 @@ public class CustomerFacade {
         //SELECT Single object
         Customer c = em.find(Customer.class, 4L);
         System.out.println(c);
-        
-        System.out.println("SELECT Single result");
-        Query q1 = em.createQuery("SELECT c FROM Customer c");
-        List<Customer> customers = q1.getResultList();
-        for (Customer customer : customers) {
-            List<Address> addresses = customer.getAddresses();
-            System.out.println(customer);
-            for (Address addresse : addresses) {
-                System.out.println(addresse);
-            }
-        }
+        List<Customer> customers = null;
+//        System.out.println("SELECT Single result");
+//        Query q1 = em.createQuery("SELECT c FROM Customer c");
+//        List<Customer> customers = q1.getResultList();
+//        for (Customer customer : customers) {
+//            List<Address> addresses = customer.getAddresses();
+//            System.out.println(customer);
+//            for (Address addresse : addresses) {
+//                System.out.println("address");
+//                System.out.println(addresse);
+//            }
+//        }
         
         System.out.println("Select customer from zip (in address object)");
         Query q2 = em.createQuery("SELECT c FROM Customer c JOIN c.addresses a WHERE a.zip = :zip");
